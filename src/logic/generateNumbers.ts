@@ -19,12 +19,28 @@ export function generateNumbers(
     const smallNumbers = shuffle([
       1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10,
     ]);
+
+    let cards: CardData[] = largeNumbers
+    .slice(0, numberOfLargeNumbersSelected)
+    .concat(smallNumbers.slice(0, 6 - numberOfLargeNumbersSelected))
+    .sort((a, b) => a - b)
+    .map(n => {
+        return {value: n, compoundLevel: 1}
+    });
+
+    if (useCustomNonsense) {
+      let nonsenseIndices = shuffle([0,1,2,3,4,5])
+      cards = cards.map((c,i) => {
+        const newC = {...c}
+        if (nonsenseIndices[0] === i) {
+          newC.nonsenseType = 'incrementer'
+        }
+        if (nonsenseIndices[1] === i) {
+          newC.nonsenseType = 'uno-reverse'
+        }
+        return newC
+      })
+    }
   
-    return largeNumbers
-      .slice(0, numberOfLargeNumbersSelected)
-      .concat(smallNumbers.slice(0, 6 - numberOfLargeNumbersSelected))
-      .sort((a, b) => a - b)
-      .map(n => {
-          return {value: n, compoundLevel: 1}
-      });
+    return cards
   }

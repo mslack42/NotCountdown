@@ -1,4 +1,4 @@
-import { CardData } from "../../../data/Card";
+import { CardData, NonsenseCardType } from "../../../data/Card";
 import "./Card.css";
 
 interface Props {
@@ -31,9 +31,26 @@ function Card({
     .filter((cl) => cl != null)
     .join(" ");
 
+  function nonsenseIcon(nonsenseType: NonsenseCardType): string {
+    switch (nonsenseType) {
+      case 'incrementer' : {
+        return '++'
+      }
+      case 'uno-reverse': {
+        return '<->'
+      }
+      default: {
+        return ''
+      }
+    }
+  }
+
   return (
     <div className={className} onClick={onClick ?? undefined}>
-      {!isFaceDown && <div className="card-value">{data?.value}</div>}
+      {!isFaceDown && (<>
+      {data?.nonsenseType && <div className="card-nonsense">{nonsenseIcon(data.nonsenseType! as NonsenseCardType)}</div>}
+      <div className="card-value">{data?.value}</div>
+      </>)}
     </div>
   );
 }

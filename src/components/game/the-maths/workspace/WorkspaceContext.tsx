@@ -9,12 +9,14 @@ import {
 import { CardData } from "../../../../data/Card";
 import { SolutionStep } from "../../../../data/SolutionStep";
 import { calculateStep } from "../../../../logic/calculateStep";
+import { applyPerTurnCardChanges } from "../../../../logic/applyPerTurnCardChanges";
 
 export interface WorkspaceState {
   currentCards: CardData[];
   originalCards: CardData[];
   selectedIndices: number[];
   workingSolution: SolutionStep[];
+  workspaceLocked: boolean
 }
 
 const initialWorkspace: WorkspaceState = {
@@ -22,6 +24,7 @@ const initialWorkspace: WorkspaceState = {
   currentCards: [],
   selectedIndices: [],
   workingSolution: [],
+  workspaceLocked: true
 };
 
 export type WorkspaceActionType =
@@ -84,7 +87,8 @@ function workspaceReducer(
         ...changedState,
         originalCards: dispatched.cards ?? changedState.originalCards,
         currentCards: dispatched.cards ?? changedState.originalCards,
-        workingSolution: []
+        workingSolution: [],
+        workspaceLocked: true
       };
       break;
     }
@@ -114,7 +118,8 @@ function workspaceReducer(
         ...changedState,
         selectedIndices: [],
         currentCards: changedState.originalCards,
-        workingSolution: []
+        workingSolution: [],
+        workspaceLocked: false
       };
       break;
     }
@@ -144,13 +149,15 @@ function workspaceReducer(
             newStep
           ]
         };
+        changedState = applyPerTurnStateChanges(changedState)
       }
       break;
     }
     case 'solve' : {
       changedState = {
         ...changedState,
-        workingSolution: dispatched.solution!
+        workingSolution: dispatched.solution!,
+        workspaceLocked: true
       }
       break;
     }
@@ -161,3 +168,11 @@ function workspaceReducer(
 
   return changedState;
 }
+function applyPerTurnStateChanges(changedState: WorkspaceState): WorkspaceState {
+  const updatedCards = applyPerTurnCardChanges(changedState.currentCards)
+  return {
+    ...changedState,
+    currentCards: updatedCards
+  }
+}
+

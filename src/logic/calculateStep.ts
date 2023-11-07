@@ -27,6 +27,14 @@ export function calculateStep(step: SolutionStep): CardData {
         throw Error('invalid op');
       }
     }
+    if (card1.nonsenseType || card2.nonsenseType) {
+      if (card1.nonsenseType === 'uno-reverse') {
+        value = Number(String(value).split('').reverse().join(''))
+      }
+      if (card2.nonsenseType === 'uno-reverse') {
+        value = Number(String(value).split('').reverse().join(''))
+      }
+    }
     return {
       value,
       compoundLevel
