@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/NotCountdown/static/css/main.2c04ae0b.css",
+    "main.js": "/NotCountdown/static/js/main.885ff295.js",
+    "index.html": "/NotCountdown/index.html",
+    "main.2c04ae0b.css.map": "/NotCountdown/static/css/main.2c04ae0b.css.map",
+    "main.885ff295.js.map": "/NotCountdown/static/js/main.885ff295.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2c04ae0b.css",
+    "static/js/main.885ff295.js"
+  ]
+}
