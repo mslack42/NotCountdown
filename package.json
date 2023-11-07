@@ -1,5 +1,6 @@
 {
-  "name": "countdown",
+  "name": "notcountdown",
+  "homepage": "https://mslack42.github.io/NotCountdown",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -7,6 +8,7 @@
     "@types/node": "^16.18.60",
     "@types/react": "^18.2.34",
     "@types/react-dom": "^18.2.14",
+    "gh-pages": "^6.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -14,6 +16,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build"
   },
