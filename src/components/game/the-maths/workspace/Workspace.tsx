@@ -29,7 +29,7 @@ function Workspace({isActive}: Props) {
           <Operations onOperation={onOperation} opArgs={args}></Operations>
         </>
       )}
-      <CardRack></CardRack>
+      <CardRack disabled={!isActive}></CardRack>
     </div>
   );
 }

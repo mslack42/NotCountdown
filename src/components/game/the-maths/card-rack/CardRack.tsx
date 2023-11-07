@@ -6,14 +6,17 @@ import {
 } from "../workspace/WorkspaceContext";
 import "./CardRack.css";
 
+interface Props {
+  disabled?: boolean
+}
 
-function CardRack() {
+function CardRack({disabled} : Props) {
   const workspace = useWorkspace();
   const workspaceDispatch = useWorkspaceDispatch();
 
   function displayCardFromData(data: CardData, index: number) {
     const isSelected = workspace.selectedIndices.includes(index);
-    const isSelectable = isSelected || workspace.selectedIndices.length < 2;
+    const isSelectable = !disabled && ( isSelected || workspace.selectedIndices.length < 2 ); 
     const onClick = !isSelectable
       ? undefined
       : () =>
