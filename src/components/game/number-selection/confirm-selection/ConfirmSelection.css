@@ -1,0 +1,16 @@
+.selection-bar {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.selection-confirmation {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ask-nicely {
+    display: inline;
+    font-family: 'Rubik Mono One', monospace;
+    font-size: 1.2em;
+}

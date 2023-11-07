@@ -1,0 +1,11 @@
+.card-rack {
+    display: flex;
+    gap: 10px;
+    justify-content: space-evenly;
+    border-style:dashed;
+    border-color: black;
+}
+
+.card-rack-wrapper {
+    width: 100%;
+}

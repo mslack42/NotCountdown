@@ -1,0 +1,6 @@
+.card-shelf {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    gap: 10px;
+}

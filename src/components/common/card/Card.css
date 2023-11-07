@@ -1,0 +1,51 @@
+.card {
+    display: block;
+    width: 45px;
+    height: 60px;
+    background-color: rgba(0, 89, 255, 0.959);
+    font-family: 'Rubik Mono One', monospace;
+    font-size: 1.6em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 2px solid rgb(21, 83, 255);
+    margin: 3px
+}
+
+.card-value {
+    color: white;
+    vertical-align: middle;
+}
+
+.card.selectable {
+    box-shadow: 0px 0px 5px 3px rgba(20, 235, 217, 0.75);
+}
+
+.card.selected {
+    box-shadow: 0px 0px 4px 5px rgba(235, 20, 138, 0.75);
+}
+
+.card.compound-1 {
+    background-color: blue;
+}
+
+.card.compound-2 {
+    background-color: rgba(0, 204, 255, 0.637);
+}
+
+.card.compound-3 {
+    background-color: rgb(183, 0, 255);
+}
+
+.card.compound-4 {
+    background-color: rgba(208, 255, 0, 0.712);
+}
+
+.card.compound-5 {
+    background-color: rgba(255, 196, 0, 0.705);
+}
+
+.card.compound-6 {
+    background-color: rgba(255, 81, 0, 0.774);
+}

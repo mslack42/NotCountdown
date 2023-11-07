@@ -1,0 +1,23 @@
+.shelf-divider {
+    border: 3px solid gray;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px 1px rgba(122, 122, 122, 0.75);
+}
+
+.number-config {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 100%;
+    flex-wrap: wrap;
+    align-content: space-between;
+    gap: 10px
+}
+
+.shelves {
+    background-color: rgba(219, 219, 219, 0.904);
+    padding: 8px;
+    margin: 8px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px 2px rgba(122, 122, 122, 0.75);
+}

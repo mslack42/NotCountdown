@@ -1,0 +1,18 @@
+.solution-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+
+.sign {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    max-width: 40px;
+    vertical-align: middle;
+    background-color: white;
+    text-align: center;
+    line-height: 100%;
+    font-size: 2em;
+}
