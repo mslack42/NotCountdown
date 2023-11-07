@@ -4,6 +4,13 @@
     box-shadow: 1px 1px 1px 1px rgba(122, 122, 122, 0.75);
 }
 
+.config-divider {
+    border: 3px solid gray;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px 1px rgba(122, 122, 122, 0.75);
+    width: calc(100% - 50px);
+}
+
 .number-config {
     display: flex;
     flex-direction: column;

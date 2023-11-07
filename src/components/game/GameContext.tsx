@@ -13,20 +13,23 @@ import { Challenge } from "../../data/Challenge";
 export interface Game {
   originalNumbers: CardData[];
   useExpertNumbers: boolean;
+  useCustomNonsense: boolean;
   challenge?: Challenge;
 }
 
 const initialGameState: Game = {
   originalNumbers: [],
   useExpertNumbers: false,
+  useCustomNonsense: false,
 };
 
-export type GameActionType = "selectNumbers" | "startGame" | "endGame";
+export type GameActionType = "selectNumbers" | "startGame" | "patchConfig";
 
 export interface GameAction {
   type: GameActionType;
   numberOfLargeNumbersSelected?: number;
   startTime?: EpochTimeStamp;
+  patch?: any
 }
 
 const GameContext = createContext<Game>(initialGameState);
@@ -63,7 +66,8 @@ function gameContextReducer(game: Game, action: GameAction) {
         ...game,
         originalNumbers: generateNumbers(
           action.numberOfLargeNumbersSelected!,
-          game.useExpertNumbers
+          game.useExpertNumbers,
+          game.useCustomNonsense
         ),
       };
       break;
@@ -73,6 +77,13 @@ function gameContextReducer(game: Game, action: GameAction) {
       changedState = {
         ...game,
         challenge
+      }
+      break;
+    }
+    case "patchConfig": {
+      changedState = {
+        ...game,
+        ...action.patch
       }
       break;
     }

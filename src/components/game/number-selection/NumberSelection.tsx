@@ -5,6 +5,7 @@ import {
 import CardShelf from "./card-shelf/CardShelf";
 import ConfirmSelection from "./confirm-selection/ConfirmSelection";
 import "./NumberSelection.css";
+import AdditionalParams from "./additional-params/AdditionalParams";
 
 function NumberSelection() {
   const numberSelection = useNumberSelection();
@@ -38,6 +39,8 @@ function NumberSelection() {
         <hr className="shelf-divider"></hr>
       </div>
       <ConfirmSelection></ConfirmSelection>
+      <hr className="config-divider"></hr>
+      <AdditionalParams></AdditionalParams>
     </div>
   );
 }

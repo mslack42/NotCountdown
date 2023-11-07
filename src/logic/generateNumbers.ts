@@ -2,7 +2,8 @@ import { CardData } from "../data/Card";
 
 export function generateNumbers(
     numberOfLargeNumbersSelected: number,
-    useExpertNumbers: boolean
+    useExpertNumbers: boolean,
+    useCustomNonsense: boolean,
   ): CardData[] {
     const shuffle = (arr: number[]) =>
       Array.from(arr)
